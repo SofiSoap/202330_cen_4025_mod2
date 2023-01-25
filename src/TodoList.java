@@ -42,16 +42,16 @@ public class TodoList {
 		todoListArray.clear();
 	}
 	
-	//TODO: print out values from array list one by one, as a to do list usually appears 
-	// so that to do values are stacked vertically 
 	public String toString() {
 		String temp = null;
 		String list = "<"+ this.title+ ">\n";
 		
 		for(int i = 0; i < todoListArray.size() ; i++) {
 			
+			int j = i+1;
+			
 			todoListArray.get(i);
-			temp = list.concat("\t-" + todoListArray.get(i) + "\n");
+			temp = list.concat("\t"+ j + "-" + todoListArray.get(i) + "\n");
 			list = temp;
 		}
 		

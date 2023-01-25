@@ -1,6 +1,5 @@
 import java.util.Scanner;
 
-//TODO: ADD VIEW TO MENU
 //TODO: ADD CLEAR TO MENU 
 
 public class TodoMain {
@@ -27,7 +26,7 @@ public class TodoMain {
 		boolean on = true;
 		int userChoice=0;
 		String userChoiceString;
-		String action;
+		String action, delNum;
 		String title = null ; 
 		//String yesno = "n" ;
 		//boolean valid = false; //to test users input?
@@ -37,7 +36,6 @@ public class TodoMain {
 		
 		
 		//User makes title which creates todo object 
-		System.out.println("You've selected [1]\n");
 		System.out.println("Create a title for todolist:");
 		title = myObj.nextLine();
 		System.out.println("Title is: " + title);
@@ -48,22 +46,19 @@ public class TodoMain {
 		while (on == true) {
 
 			System.out
-					.println("Please select one of the following \n" + "[1]NOT VALID\n" + "[2]Add to todo list\n"
-							+ "[3]Delete item in todo list\n" + "[4]Print todo list\n" + "[5]Quit Program\n");
+					.println("Please select one of the following \n"
+							+ "[1]Add to todo list\n"
+							+ "[2]Delete item in todo list\n" 
+							+ "[3]Print todo list\n" 
+							+ "[4]Quit Program\n");
 			userChoiceString = myObj.nextLine();
 			userChoice = Integer.parseInt(userChoiceString);
 			
 			switch (userChoice) {
 			// ----------------------------------------------------------------------------
 			case 1:
-
-				
-				break;
-			// ----------------------------------------------------------------------------
-			case 2:
-
-				System.out.println("You've selected [2]");
-				System.out.println("Write out todo:");
+				System.out.println("You've selected [1]Add to todo list");
+				System.out.println("Add a todo:");
 				action = myObj.nextLine();
 				
 				mainTodo.addTodo(action);
@@ -71,25 +66,32 @@ public class TodoMain {
 				System.out.println("Action to complete: " + action);
 
 				System.out.println("\n");
-				break;
-			// ----------------------------------------------------------------------------
-			case 3:
-
-				System.out.println("You've selected [3]");
-				System.out.println("Select a number to delete:");
-				//mainTodo.delTodo(userChoice);
 				
 				break;
 			// ----------------------------------------------------------------------------
-			case 4:
+			case 2:
+				//TODO: add delete so that it works 
+				System.out.println("You've selected [2]Delete item in todo list");
 				System.out.println(mainTodo.toString());
-
+				System.out.println("Select a number to delete:");
+				delNum = myObj.nextLine();
+				
+				mainTodo.delTodo(Integer.parseInt(delNum));;
+				//mainTodo.delTodo(userChoice);
+				
+			
 				break;
 			// ----------------------------------------------------------------------------
-			case 5:
+			case 3:
+				System.out.println("You've selected [3]Print todo list");
+				System.out.println(mainTodo.toString());
+				break;
+			// ----------------------------------------------------------------------------
+			case 4:
 				on = false;
 
 				break;
+			// ----------------------------------------------------------------------------
 
 			default:
 				System.out.println("Invalid Choice, Please try again.");
@@ -98,10 +100,7 @@ public class TodoMain {
 			
 	
 		}
-		
-		
 	
-		
 		
 	}
 
